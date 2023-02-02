@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du85l5elix7v5"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://vl4b5v41wx3r"
+path="res://.godot/imported/poppy.svg-2a400f5e20ff97c525ad9c5fefc22f89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://Seeds/BlossomArt/poppy.svg"
+dest_files=["res://.godot/imported/poppy.svg-2a400f5e20ff97c525ad9c5fefc22f89.ctex"]
 
 [params]
 
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
-svg/scale=0.25
+svg/scale=0.032
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

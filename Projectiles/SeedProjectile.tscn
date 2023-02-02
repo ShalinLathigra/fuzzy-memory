@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://d18fsi5x3xvb7"]
+
+[ext_resource type="PackedScene" uid="uid://br64usa6vord6" path="res://Projectiles/Projectile.tscn" id="1_0ipr1"]
+[ext_resource type="Script" path="res://Player/SeedHitDetector.gd" id="2_s81br"]
+[ext_resource type="PackedScene" uid="uid://0u15m812vy3o" path="res://Seeds/BaseSeed.tscn" id="4_tottf"]
+
+[sub_resource type="Shader" id="Shader_g7jv3"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float y_cutoff: hint_range(0.0, 1.0, 0.05);
+
+varying vec4 modulate;
+
+void vertex() {
+	modulate = COLOR;
+}
+
+void fragment() {
+	vec4 tex = texture(TEXTURE, UV);
+	float t_cutoff = step(1.0-y_cutoff, UV.y);
+	float colour_mask = tex.r;
+	COLOR = (modulate * colour_mask + vec4(0,0,0,modulate.a) * (1.0-colour_mask)) * t_cutoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq2oa"]
+resource_local_to_scene = true
+shader = SubResource("Shader_g7jv3")
+shader_parameter/y_cutoff = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q24um"]
+radius = 24.0
+
+[node name="Projectile" instance=ExtResource("1_0ipr1")]
+
+[node name="BaseSeed" parent="." index="2" instance=ExtResource("4_tottf")]
+visible = false
+material = SubResource("ShaderMaterial_kq2oa")
+
+[node name="SeedCarrier" type="Area2D" parent="." index="3" node_paths=PackedStringArray("_seed")]
+collision_layer = 2
+collision_mask = 256
+script = ExtResource("2_s81br")
+_seed = NodePath("../BaseSeed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeedCarrier" index="0"]
+shape = SubResource("CircleShape2D_q24um")
+
+[connection signal="area_entered" from="SeedCarrier" to="SeedCarrier" method="_on_area_entered"]
