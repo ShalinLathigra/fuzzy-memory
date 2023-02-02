@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlp01antp3v3h"]
+[gd_scene load_steps=15 format=3 uid="uid://dlp01antp3v3h"]
 
 [ext_resource type="Texture2D" uid="uid://du85l5elix7v5" path="res://icon.svg" id="1_bu40j"]
 [ext_resource type="Texture2D" uid="uid://bp42jbcoscbm0" path="res://Assets/MagicMarket/Background/Tilesets/TilesetFloor.png" id="1_l1n8t"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d18fsi5x3xvb7" path="res://Projectiles/SeedProjectile.tscn" id="5_hakr3"]
 [ext_resource type="Script" path="res://Player/SeedLauncher.gd" id="5_ricdx"]
 [ext_resource type="Script" path="res://Planters/Planter.gd" id="7_6imfh"]
+[ext_resource type="Script" path="res://Scenes/WaterGun.gd" id="7_p7dfs"]
+[ext_resource type="PackedScene" uid="uid://bp5w7epffrdlc" path="res://Projectiles/WaterProjectile.tscn" id="8_55jff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5u4x"]
 texture = ExtResource("1_l1n8t")
@@ -1204,6 +1206,14 @@ script = ExtResource("5_ricdx")
 projectile = ExtResource("5_hakr3")
 delay = 0.1
 
+[node name="WaterGun" type="Node2D" parent="Player/MouseArm"]
+position = Vector2(17, 0)
+script = ExtResource("7_p7dfs")
+projectile = ExtResource("8_55jff")
+recharge_cooldown = 1500
+fire_cooldown = 250
+max_charges = 3
+
 [node name="Direction Icon" type="Sprite2D" parent="Player/MouseArm"]
 position = Vector2(25, 0)
 texture = ExtResource("1_bu40j")
@@ -1222,7 +1232,7 @@ collision_mask = 65536
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("7_6imfh")
-health = NodePath("../Health")
+health = NodePath("../Icon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox/Planter"]
 shape = SubResource("CircleShape2D_s0bfj")

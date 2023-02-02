@@ -9,12 +9,14 @@ var speed_t: float
 var dir: Vector2
 var can_act: bool = true
 var seed_launcher: SeedLauncher
+var water_gun: WaterGun
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
 	seed_launcher = $MouseArm/SeedLauncher as SeedLauncher
+	water_gun = $MouseArm/WaterGun
 
 func _physics_process(delta: float) -> void:
 	# if moving, do acceleration first
@@ -31,7 +33,11 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if not can_act: return
-	if Input.is_action_pressed("use"):
+	if Input.is_action_pressed("seed_launcher"):
 		can_act = false
 		seed_launcher.fire()
+		create_tween().tween_callback(func(): can_act = true).set_delay(seed_launcher.delay)
+	if Input.is_action_pressed("water_gun"):
+		can_act = false
+		water_gun.fire()
 		create_tween().tween_callback(func(): can_act = true).set_delay(seed_launcher.delay)

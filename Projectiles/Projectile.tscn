@@ -19,5 +19,5 @@ ticks_to_death = 5000
 shape = SubResource("CircleShape2D_nob5j")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.521569, 1, 0.537255, 1)
+modulate = Color(0.415686, 1, 0.827451, 1)
 texture = ExtResource("2_rqjkw")

@@ -21,8 +21,8 @@ window/size/viewport_width=512
 window/size/viewport_height=288
 window/size/window_width_override=1024
 window/size/window_height_override=576
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [input]
 
@@ -46,9 +46,14 @@ move_right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":84,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
-use={
+seed_launcher={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+water_gun={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194308,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 
@@ -56,6 +61,7 @@ use={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="PlayerProjectiles"
+2d_physics/layer_3="WaterProjectiles"
 2d_physics/layer_9="Seedable"
 2d_physics/layer_17="Blocker"
 

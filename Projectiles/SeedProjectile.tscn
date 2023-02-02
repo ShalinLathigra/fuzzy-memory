@@ -24,7 +24,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq2oa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mehj3"]
 resource_local_to_scene = true
 shader = SubResource("Shader_g7jv3")
 shader_parameter/y_cutoff = 1.0
@@ -36,7 +36,7 @@ radius = 24.0
 
 [node name="BaseSeed" parent="." index="2" instance=ExtResource("4_tottf")]
 visible = false
-material = SubResource("ShaderMaterial_kq2oa")
+material = SubResource("ShaderMaterial_mehj3")
 
 [node name="SeedCarrier" type="Area2D" parent="." index="3" node_paths=PackedStringArray("_seed")]
 collision_layer = 2
