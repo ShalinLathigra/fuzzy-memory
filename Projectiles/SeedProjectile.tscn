@@ -24,19 +24,22 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkhle"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nqr32"]
 resource_local_to_scene = true
 shader = SubResource("Shader_g7jv3")
 shader_parameter/y_cutoff = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q24um"]
-radius = 24.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88s5k"]
+height = 40.0
 
 [node name="Projectile" instance=ExtResource("1_0ipr1")]
 
+[node name="Icon" parent="." index="1"]
+modulate = Color(0.0352941, 1, 0.00392157, 1)
+
 [node name="BaseSeed" parent="." index="2" instance=ExtResource("4_tottf")]
 visible = false
-material = SubResource("ShaderMaterial_tkhle")
+material = SubResource("ShaderMaterial_nqr32")
 
 [node name="SeedCarrier" type="Area2D" parent="." index="3" node_paths=PackedStringArray("_seed")]
 collision_layer = 2
@@ -45,6 +48,7 @@ script = ExtResource("2_s81br")
 _seed = NodePath("../BaseSeed")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SeedCarrier" index="0"]
-shape = SubResource("CircleShape2D_q24um")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_88s5k")
 
 [connection signal="area_entered" from="SeedCarrier" to="SeedCarrier" method="_on_area_entered"]

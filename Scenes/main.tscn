@@ -1205,6 +1205,167 @@ texture = ExtResource("1_bu40j")
 
 [node name="Health" type="Node2D" parent="PlanterBox"]
 
+[node name="PlanterBox2" type="StaticBody2D" parent="."]
+position = Vector2(160, -84)
+collision_layer = 65792
+collision_mask = 65536
+
+[node name="Planter" type="Area2D" parent="PlanterBox2" node_paths=PackedStringArray("health")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("7_6imfh")
+health = NodePath("../Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox2/Planter"]
+shape = SubResource("CircleShape2D_s0bfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox2"]
+shape = SubResource("CircleShape2D_d28ee")
+
+[node name="Icon" type="Sprite2D" parent="PlanterBox2"]
+self_modulate = Color(1, 0.784314, 0, 1)
+texture = ExtResource("1_bu40j")
+
+[node name="Health" type="Node2D" parent="PlanterBox2"]
+
+[node name="PlanterBox3" type="StaticBody2D" parent="."]
+position = Vector2(196, 18)
+collision_layer = 65792
+collision_mask = 65536
+
+[node name="Planter" type="Area2D" parent="PlanterBox3" node_paths=PackedStringArray("health")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("7_6imfh")
+health = NodePath("../Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox3/Planter"]
+shape = SubResource("CircleShape2D_s0bfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox3"]
+shape = SubResource("CircleShape2D_d28ee")
+
+[node name="Icon" type="Sprite2D" parent="PlanterBox3"]
+self_modulate = Color(1, 0.784314, 0, 1)
+texture = ExtResource("1_bu40j")
+
+[node name="Health" type="Node2D" parent="PlanterBox3"]
+
+[node name="PlanterBox4" type="StaticBody2D" parent="."]
+position = Vector2(213, 61)
+collision_layer = 65792
+collision_mask = 65536
+
+[node name="Planter" type="Area2D" parent="PlanterBox4" node_paths=PackedStringArray("health")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("7_6imfh")
+health = NodePath("../Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox4/Planter"]
+shape = SubResource("CircleShape2D_s0bfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox4"]
+shape = SubResource("CircleShape2D_d28ee")
+
+[node name="Icon" type="Sprite2D" parent="PlanterBox4"]
+self_modulate = Color(1, 0.784314, 0, 1)
+texture = ExtResource("1_bu40j")
+
+[node name="Health" type="Node2D" parent="PlanterBox4"]
+
+[node name="PlanterBox5" type="StaticBody2D" parent="."]
+position = Vector2(-42, -99)
+collision_layer = 65792
+collision_mask = 65536
+
+[node name="Planter" type="Area2D" parent="PlanterBox5" node_paths=PackedStringArray("health")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("7_6imfh")
+health = NodePath("../Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox5/Planter"]
+shape = SubResource("CircleShape2D_s0bfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox5"]
+shape = SubResource("CircleShape2D_d28ee")
+
+[node name="Icon" type="Sprite2D" parent="PlanterBox5"]
+self_modulate = Color(1, 0.784314, 0, 1)
+texture = ExtResource("1_bu40j")
+
+[node name="Health" type="Node2D" parent="PlanterBox5"]
+
+[node name="PlanterBox6" type="StaticBody2D" parent="."]
+position = Vector2(-140, -32)
+collision_layer = 65792
+collision_mask = 65536
+
+[node name="Planter" type="Area2D" parent="PlanterBox6" node_paths=PackedStringArray("health")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("7_6imfh")
+health = NodePath("../Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox6/Planter"]
+shape = SubResource("CircleShape2D_s0bfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox6"]
+shape = SubResource("CircleShape2D_d28ee")
+
+[node name="Icon" type="Sprite2D" parent="PlanterBox6"]
+self_modulate = Color(1, 0.784314, 0, 1)
+texture = ExtResource("1_bu40j")
+
+[node name="Health" type="Node2D" parent="PlanterBox6"]
+
+[node name="PlanterBox7" type="StaticBody2D" parent="."]
+position = Vector2(-188, 83)
+collision_layer = 65792
+collision_mask = 65536
+
+[node name="Planter" type="Area2D" parent="PlanterBox7" node_paths=PackedStringArray("health")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("7_6imfh")
+health = NodePath("../Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox7/Planter"]
+shape = SubResource("CircleShape2D_s0bfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox7"]
+shape = SubResource("CircleShape2D_d28ee")
+
+[node name="Icon" type="Sprite2D" parent="PlanterBox7"]
+self_modulate = Color(1, 0.784314, 0, 1)
+texture = ExtResource("1_bu40j")
+
+[node name="Health" type="Node2D" parent="PlanterBox7"]
+
+[node name="PlanterBox8" type="StaticBody2D" parent="."]
+position = Vector2(-67, 108)
+collision_layer = 65792
+collision_mask = 65536
+
+[node name="Planter" type="Area2D" parent="PlanterBox8" node_paths=PackedStringArray("health")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("7_6imfh")
+health = NodePath("../Icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox8/Planter"]
+shape = SubResource("CircleShape2D_s0bfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanterBox8"]
+shape = SubResource("CircleShape2D_d28ee")
+
+[node name="Icon" type="Sprite2D" parent="PlanterBox8"]
+self_modulate = Color(1, 0.784314, 0, 1)
+texture = ExtResource("1_bu40j")
+
+[node name="Health" type="Node2D" parent="PlanterBox8"]
+
 [node name="ProjectileRoot" type="Node" parent="." groups=["ProjectileRoot"]]
 
 [node name="AmmoUI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_sgi6j")]
