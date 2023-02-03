@@ -10,7 +10,6 @@ var current_seed: Seed
 # to the health to check if movment flags are set.
 
 func try_apply_seed(new_seed: Seed) -> bool:
-	print("trying seed")
 	if current_seed:
 		return false
 	current_seed = new_seed

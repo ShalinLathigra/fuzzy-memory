@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal change_item(selection: int)
+
 const SPEED = 96
 
 @export_range(0.05, 2.5) var sec_to_max: float
@@ -8,15 +10,23 @@ const SPEED = 96
 var speed_t: float
 var dir: Vector2
 var can_act: bool = true
-var seed_launcher: SeedLauncher
-var water_gun: WaterGun
+var seed_launcher: ProjectileLauncher
+var water_gun: ChargeLauncher
+var items := []
+
+var current: int
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
-	seed_launcher = $MouseArm/SeedLauncher as SeedLauncher
+	seed_launcher = $MouseArm/SeedLauncher as ProjectileLauncher
 	water_gun = $MouseArm/WaterGun
+	items.push_back(seed_launcher)
+	items.push_back(water_gun)
+
+	current = 0
+	change_item.emit(current)
 
 func _physics_process(delta: float) -> void:
 	# if moving, do acceleration first
@@ -30,14 +40,14 @@ func _physics_process(delta: float) -> void:
 	velocity = dir * SPEED * speed_t
 	move_and_slide()
 
-
 func _process(_delta: float) -> void:
 	if not can_act: return
-	if Input.is_action_pressed("seed_launcher"):
+	if Input.is_action_pressed("use_item"):
 		can_act = false
-		seed_launcher.fire()
-		create_tween().tween_callback(func(): can_act = true).set_delay(seed_launcher.delay)
-	if Input.is_action_pressed("water_gun"):
-		can_act = false
-		water_gun.fire()
-		create_tween().tween_callback(func(): can_act = true).set_delay(seed_launcher.delay)
+		items[current].fire()
+		create_tween().tween_callback(func(): can_act = true).set_delay(items[current].delay_post_shot)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("next_item"):
+		current = (current + 1) % items.size()
+		change_item.emit(current)

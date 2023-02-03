@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://cq7kbwampjif0"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_ltdte"]
+[ext_resource type="Texture2D" uid="uid://du85l5elix7v5" path="res://icon.svg" id="2_md6w8"]
+[ext_resource type="Script" path="res://Player/MouseArm.gd" id="3_sadfy"]
+[ext_resource type="Script" path="res://Player/ProjectileLauncher.gd" id="4_5dwr2"]
+[ext_resource type="PackedScene" uid="uid://d18fsi5x3xvb7" path="res://Projectiles/SeedProjectile.tscn" id="5_0pdlx"]
+[ext_resource type="Script" path="res://Player/ChargeLauncher.gd" id="6_5hqp5"]
+[ext_resource type="PackedScene" uid="uid://bp5w7epffrdlc" path="res://Projectiles/WaterProjectile.tscn" id="7_ydkj4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvrm0"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 65536
+motion_mode = 1
+script = ExtResource("1_ltdte")
+sec_to_max = 0.2
+sec_to_stop = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wvrm0")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_md6w8")
+
+[node name="MouseArm" type="Node2D" parent="."]
+script = ExtResource("3_sadfy")
+
+[node name="SeedLauncher" type="Node2D" parent="MouseArm"]
+position = Vector2(17, 0)
+script = ExtResource("4_5dwr2")
+projectile = ExtResource("5_0pdlx")
+delay_post_shot = 0.2
+
+[node name="WaterGun" type="Node2D" parent="MouseArm"]
+position = Vector2(17, 0)
+script = ExtResource("6_5hqp5")
+recharge_cooldown = 1250
+projectile = ExtResource("7_ydkj4")
+fire_cooldown = 500
+delay_post_shot = 0.2
+max_ammo = 3
+
+[node name="Direction Icon" type="Sprite2D" parent="MouseArm"]
+position = Vector2(25, 0)
+texture = ExtResource("2_md6w8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 4)

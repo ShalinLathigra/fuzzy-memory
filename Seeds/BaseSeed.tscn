@@ -25,9 +25,9 @@ z_index = 1
 material = SubResource("ShaderMaterial_c7yxg")
 texture = ExtResource("2_uw2po")
 script = ExtResource("1_hri8t")
-sec_until_full_growth = 20.0
-sec_in_peak_condition = 30.0
-sec_until_full_wither = 20.0
+growth_duration = 8.0
+bloom_duration = 8.0
+wilt_duration = 2.0
 
 [node name="BaseBlossom" type="Sprite2D" parent="."]
 modulate = Color(0.94902, 0.992157, 1, 1)

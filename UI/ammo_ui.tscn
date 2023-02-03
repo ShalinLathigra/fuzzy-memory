@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs65otas4wwmk"]
+
+[ext_resource type="Script" path="res://UI/AmmoUI.gd" id="1_481ti"]
+[ext_resource type="Texture2D" uid="uid://dvik6xpikwg7u" path="res://plant-seed.svg" id="2_pknq3"]
+[ext_resource type="Texture2D" uid="uid://bln5o3cvs4717" path="res://water-drop.svg" id="3_774ct"]
+[ext_resource type="Script" path="res://UI/WaterGunUI.gd" id="3_duflo"]
+
+[node name="AmmoUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_481ti")
+metadata/_edit_vertical_guides_ = []
+
+[node name="SeedLauncherUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 421.0
+offset_top = 247.0
+offset_right = 512.0
+offset_bottom = 287.0
+
+[node name="TextureRect" type="TextureRect" parent="SeedLauncherUI"]
+layout_mode = 2
+offset_left = 59.0
+offset_right = 91.0
+offset_bottom = 40.0
+texture = ExtResource("2_pknq3")
+
+[node name="Label" type="Label" parent="SeedLauncherUI"]
+layout_mode = 0
+offset_left = -39.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 12
+text = "Seed Launcher"
+
+[node name="WaterGunUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 421.0
+offset_top = 247.0
+offset_right = 461.0
+offset_bottom = 287.0
+script = ExtResource("3_duflo")
+
+[node name="TextureRect" type="TextureRect" parent="WaterGunUI"]
+layout_mode = 2
+offset_left = 59.0
+offset_right = 91.0
+offset_bottom = 40.0
+texture = ExtResource("3_774ct")
+
+[node name="Label2" type="Label" parent="WaterGunUI"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 20.0
+offset_right = 99.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 12
+text = "Water Gun"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WaterGunUI"]
+offset_left = -11.0
+offset_right = 44.0
+offset_bottom = 16.0
+alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="WaterGunUI/HBoxContainer"]
+layout_mode = 2

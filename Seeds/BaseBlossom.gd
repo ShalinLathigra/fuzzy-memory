@@ -28,7 +28,6 @@ func handle_parent_bloom() -> void:
 		.from(start_color)
 	tw.tween_property(self, "t", 1.0, sec_until_full_growth) \
 		.from(0.0)
-	prints("Applying blossom", name)
 
 func handle_parent_wither() -> void:
 	tw = create_tween() \
@@ -39,7 +38,6 @@ func handle_parent_wither() -> void:
 	tw.parallel() \
 		.tween_property(self, "self_modulate", end_colour, sec_until_full_wither) \
 		.from(bloom_colour)
-	prints("Withering blossom", name)
 
 
 func _process(_delta: float) -> void:
