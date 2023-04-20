@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxyph4p28jb3r"]
+
+[ext_resource type="Script" path="res://Player/CooldownTimer.gd" id="1_v8cdh"]
+
+[node name="CooldownTimer" type="Node"]
+script = ExtResource("1_v8cdh")

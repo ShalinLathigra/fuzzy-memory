@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://du85l5elix7v5" path="res://icon.svg" id="2_rqjkw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20tjb"]
-radius = 8.0
+radius = 5.0
+height = 26.0
 
 [node name="Projectile" type="CharacterBody2D"]
 collision_layer = 2
@@ -23,4 +24,4 @@ shape = SubResource("CapsuleShape2D_20tjb")
 modulate = Color(0.415686, 1, 0.827451, 1)
 texture = ExtResource("2_rqjkw")
 region_enabled = true
-region_rect = Rect2(0, 8, 32, 16)
+region_rect = Rect2(4, 12, 24, 8)

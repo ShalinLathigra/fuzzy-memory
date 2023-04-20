@@ -17,4 +17,7 @@ func _physics_process(_delta: float) -> void:
 	if not active: return
 	var collision = move_and_slide()
 	if collision or Time.get_ticks_msec() >= death_tick:
-		call_deferred("queue_free")
+		die()
+
+func die(_arg = null):
+	call_deferred("queue_free")

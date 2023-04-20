@@ -11,22 +11,26 @@ anchors_preset = 0
 script = ExtResource("1_481ti")
 metadata/_edit_vertical_guides_ = []
 
-[node name="SeedLauncherUI" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeedLauncherUI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 421.0
+offset_left = 414.0
 offset_top = 247.0
-offset_right = 512.0
+offset_right = 505.0
 offset_bottom = 287.0
 
-[node name="TextureRect" type="TextureRect" parent="SeedLauncherUI"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/SeedLauncherUI"]
+self_modulate = Color(0.0352941, 1, 0.00392157, 1)
 layout_mode = 2
-offset_left = 59.0
-offset_right = 91.0
+offset_left = 58.0
+offset_right = 98.0
 offset_bottom = 40.0
 texture = ExtResource("2_pknq3")
 
-[node name="Label" type="Label" parent="SeedLauncherUI"]
+[node name="Label" type="Label" parent="CanvasLayer/SeedLauncherUI"]
 layout_mode = 0
 offset_left = -39.0
 offset_top = 20.0
@@ -35,7 +39,8 @@ offset_bottom = 46.0
 theme_override_font_sizes/font_size = 12
 text = "Seed Launcher"
 
-[node name="WaterGunUI" type="Control" parent="."]
+[node name="WaterGunUI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -45,14 +50,15 @@ offset_right = 461.0
 offset_bottom = 287.0
 script = ExtResource("3_duflo")
 
-[node name="TextureRect" type="TextureRect" parent="WaterGunUI"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/WaterGunUI"]
+self_modulate = Color(0, 0.701961, 1, 1)
 layout_mode = 2
 offset_left = 59.0
-offset_right = 91.0
+offset_right = 99.0
 offset_bottom = 40.0
 texture = ExtResource("3_774ct")
 
-[node name="Label2" type="Label" parent="WaterGunUI"]
+[node name="Label2" type="Label" parent="CanvasLayer/WaterGunUI"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = 20.0
@@ -61,11 +67,28 @@ offset_bottom = 46.0
 theme_override_font_sizes/font_size = 12
 text = "Water Gun"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="WaterGunUI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WaterGunUI"]
+layout_mode = 0
 offset_left = -11.0
 offset_right = 44.0
 offset_bottom = 16.0
 alignment = 2
 
-[node name="ColorRect" type="ColorRect" parent="WaterGunUI/HBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/WaterGunUI/HBoxContainer"]
 layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 118.0
+offset_bottom = 52.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Change Ability    SCROLL
+Fire                        SPACE
+Sickle                    LCTRL"

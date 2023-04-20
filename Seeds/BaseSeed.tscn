@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0u15m812vy3o"]
+[gd_scene load_steps=13 format=3 uid="uid://0u15m812vy3o"]
 
 [ext_resource type="Script" path="res://Seeds/BaseSeed.gd" id="1_hri8t"]
 [ext_resource type="Shader" path="res://Seeds/SeedGrowth.gdshader" id="1_i0o7a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Seeds/CircleGrowth.gdshader" id="4_jm0qh"]
 [ext_resource type="Texture2D" uid="uid://bsjmcs50ahm4k" path="res://Seeds/BlossomArt/lotus-flower.svg" id="4_q03ub"]
 [ext_resource type="Script" path="res://Seeds/BaseBlossom.gd" id="6_3de3w"]
+[ext_resource type="Script" path="res://Seeds/BlossomParticles2D.gd" id="7_i02uh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7yxg"]
 resource_local_to_scene = true
@@ -17,6 +18,16 @@ resource_local_to_scene = true
 shader = ExtResource("4_jm0qh")
 shader_parameter/rad_cutoff = 1.0
 
+[sub_resource type="Curve" id="Curve_nphk0"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ryhql"]
+_data = [Vector2(0, 0.518018), 0.0, 0.0, 0, 0, Vector2(0.241228, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.52, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfud6"]
 radius = 18.0278
 
@@ -25,22 +36,39 @@ z_index = 1
 material = SubResource("ShaderMaterial_c7yxg")
 texture = ExtResource("2_uw2po")
 script = ExtResource("1_hri8t")
-growth_duration = 8.0
-bloom_duration = 8.0
-wilt_duration = 2.0
+bloom_value = 20
+late_value = 10
 
 [node name="BaseBlossom" type="Sprite2D" parent="."]
-modulate = Color(0.94902, 0.992157, 1, 1)
+z_index = 1
 material = SubResource("ShaderMaterial_rlfxd")
 texture = ExtResource("4_q03ub")
 script = ExtResource("6_3de3w")
-sec_until_full_growth = 1.0
-sec_until_full_wither = 1.0
-growth_transition = 1
-wither_transition = 1
 start_color = Color(0, 0, 0, 0.509804)
 bloom_colour = Color(2, 0.44, 1.34, 1)
 end_colour = Color(0, 0, 0, 0.713726)
+
+[node name="BlossomParticles2D" type="CPUParticles2D" parent="BaseBlossom"]
+z_index = -1
+scale = Vector2(1.00226, 1.02164)
+emitting = false
+amount = 128
+lifetime = 8.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(2, 2)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 8)
+initial_velocity_min = 8.0
+initial_velocity_max = 24.0
+angle_min = -90.0
+angle_max = 90.0
+angle_curve = SubResource("Curve_nphk0")
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_ryhql")
+script = ExtResource("7_i02uh")
 
 [node name="WaterDetector" type="Area2D" parent="."]
 collision_layer = 0

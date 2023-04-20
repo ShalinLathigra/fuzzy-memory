@@ -7,7 +7,7 @@ extends Control
 # how do we provide these things? If none exist, then create one and don't worry about it.
 # if one exists, then
 
-@export var player: Player
+var player: Player
 
 enum AMMO_SELECTOR{
 	SEED_LAUNCHER=0,
@@ -18,8 +18,11 @@ var seed_ui: Control
 var water_ui: WaterGunUI
 
 func _ready() -> void:
-	seed_ui = $SeedLauncherUI as Control
-	water_ui = $WaterGunUI as WaterGunUI
+	seed_ui = %SeedLauncherUI as Control
+	water_ui = %WaterGunUI as WaterGunUI
+
+func set_player(p: Player) -> void:
+	player = p
 	player.change_item.connect(toggle_ui_components)
 	var num_ammo_displays: int = player.water_gun.max_ammo
 	water_ui.init(num_ammo_displays)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4srskgiqcfhw"]
+
+[ext_resource type="Script" path="res://UI/ScoreUI.gd" id="1_b7vck"]
+
+[node name="ScoreUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_b7vck")
+metadata/_edit_vertical_guides_ = []
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 236.0
+offset_right = 61.0
+offset_bottom = 287.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/PanelContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="ScoreIncreaseLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 64.0
+offset_top = 258.0
+offset_right = 104.0
+offset_bottom = 284.0
+text = "+xx"
+
+[node name="PopupRoot" type="Node2D" parent="CanvasLayer"]
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer"]
+position = Vector2(70, 287)
